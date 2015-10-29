@@ -1,0 +1,54 @@
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class trianguloTest {
+	triangulo tr = new triangulo();
+	@Test
+	public void testAvaliaTriangulo() {
+		//escaleno: 1
+		String result = tr.avalia_triangulo(5,4,3);
+		assertEquals("escaleno", result);
+		//equilatero: 2
+		result = tr.avalia_triangulo(1, 1, 1);
+		assertEquals("equilatero", result);
+		//isosceles: 3
+		result = tr.avalia_triangulo(5, 5, 8);
+		assertEquals("isosceles", result);
+		//invertendo posicoes: 4,5
+		result = tr.avalia_triangulo(5, 8, 5);
+		assertEquals("isosceles", result);
+		result = tr.avalia_triangulo(8, 5, 5);
+		assertEquals("isosceles", result);
+		//zero em uma posicao: 6
+		result = tr.avalia_triangulo(0, 1, 2);
+		assertEquals("invalido", result);
+		//valor negativo: 7
+		result = tr.avalia_triangulo(5, -3, 4);
+		assertEquals("invalido", result);
+		//soma incorreta e invertendo posicoes: 8, 9, 10, 11, 12, 13
+		result = tr.avalia_triangulo(3, 2, 1);
+		assertEquals("invalido", result);
+		result = tr.avalia_triangulo(2, 3, 1);
+		assertEquals("invalido", result);
+		result = tr.avalia_triangulo(2, 1, 3);
+		assertEquals("invalido", result);
+		result = tr.avalia_triangulo(2, 1, 4);
+		assertEquals("invalido", result);
+		result = tr.avalia_triangulo(1, 4, 2);
+		assertEquals("invalido", result);
+		result = tr.avalia_triangulo(4, 1, 2);
+		assertEquals("invalido", result);
+		//zero em todas posicoes: 14
+		result = tr.avalia_triangulo(0, 0, 0);
+		assertEquals("invalido", result);
+		//menor parametro
+		result = tr.avalia_triangulo(0, 0);
+		assertEquals("invalido", result);
+		//não inteiro: 15
+		result = tr.avalia_triangulo(4.3, 5.1, 5.4);
+		assertEquals("invalido", result);
+		
+	}
+
+}
